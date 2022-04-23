@@ -10,11 +10,13 @@ namespace Conciertos1.Data
         }
 
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Entrance> Entrances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Ticket>().HasIndex(c => c.Name).IsUnique();
+            modelBuilder.Entity<Entrance>().HasIndex(c => c.Id).IsUnique();
         }
     }
 
